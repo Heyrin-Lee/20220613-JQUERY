@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  <input id="inTxt">
+  <button type="button" id="btn">추가</button>
+  <div id="result"></div>
+  <script>
+    inTxt.addEventListener('focusin',function() {
+      this.style.backgroundColor = 'cyan'; //this = event타겟
+    });
+    inTxt.addEventListener('focusout',function() {
+      this.style.backgroundColor = 'white';
+    });
+
+    btn.addEventListener('click',function() {
+      //value속성 사용, result에 값을 넣을 때 innerHTML사용
+      result.innerHTML += inTxt.value + "<br>";
+      //inTxt.select(); //input안에 있는 값을 입력한 후에 전체선택
+        inTxt.value = "";
+        inTxt.focus(); //추가한 후에도 포커스가 input 박스 안에 있도록 한다
+    });
+
+    //엔터 쳤을 때 이벤트
+    inTxt.addEventListener('keypress',function() {
+      if(event.keyCode == 13) {
+        btn.click(); //위에서 설정한 click 이벤트를 호출
+      }
+      //console.log(window.event);
+      // console.log(window.event.target); //this와 같다
+      // console.log(this);
+    });
+    document.addEventListener('keydown',function() { //방향키는 keydown
+      console.log(event.keyCode)
+    })
+    
+  </script>
+</body>
+</html>

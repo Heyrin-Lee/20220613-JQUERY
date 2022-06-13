@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    span{display:none;}
+  </style>
+</head>
+<body>
+  <input id="name">
+  <input id="price">
+  <button type="button" id="btn">추가</button>
+  <!--이벤트위임(Propagation): 부모태그에 이벤트를 설정해두면 추가되는 태그에도 자동으로 이벤트가 설정된다 !편함!-->
+  <ul>
+    <li>바나나<span>300</span></li>
+    <li>사과<span>300</span></li>
+  </ul>
+  <script>
+    btn.addEventListener('click',function() {
+      var li = document.createElement('li');
+      li.innerHTML = document.getElementById('name').value;
+      var span = document.createElement('span');
+      span.innerHTML = price.value;
+      document.querySelector('ul').appendChild(li);
+      li.appendChild(span);
+
+      //입력 후에 인풋값 리셋
+      document.getElementById('name').value = '';
+      price.value = '';
+
+      //추가한 후 포커스 커서
+      document.getElementById('name').focus();
+    })
+
+    //엔터 쳤을 때 이벤트
+    price.addEventListener('keypress',function() {
+      if(event.keyCode == 13) {
+        btn.click();
+      }
+    })
+    //li태그 마우스 오버하면 가격이 보이게
+    var lilist = document.getElementsByTagName('li');
+    for(linode of lilist) {
+      linode.addEventListener('mouseover',function() {
+        this.getElementsByTagName('span')[0].style.display="inline-block"; //elements는 여러개의 값을 가져오기 때문에 인덱스값[0]을 입력해줘야 몇번째 값을 가져올지 알 수 있다
+      })
+      //마우스 떼면 다시 보이게
+      linode.addEventListener('mouseout',function() {
+        this.getElementsByTagName('span')[0].style.display="none"; 
+      })
+    }
+  </script>
+</body>
+</html>
