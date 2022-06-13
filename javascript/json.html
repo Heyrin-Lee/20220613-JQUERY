@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var obj = {}; // new Object()
+    obj.name = "홍길동";
+    obj.age = 20;
+    obj.dept = "개발";
+    obj.hobby = ['독서','게임'];
+
+    var obj2 = {name:"김길동", age:22, dept:"디자인"};
+
+    var arr = [obj, obj2]; //배열 속에 obj,obj2를 담았다
+
+    //첫번째 사원의 부서를 알아보자
+    console.log(arr[0].dept);
+    //첫번째 사원의 첫번째 취미
+    console.log(arr[0].hobby[0])
+    //전체 사원의 이름만 출력
+    for(i=0; i<arr.length; i++) {
+      console.log(arr[i].name);
+    }
+    for(var i of arr) {
+      console.log(i.name);
+    }
+    //첫번째 사원의 취미들 출력
+    for(i=1; i<arr[0].hobby.length; i++) {
+      console.log(arr[0].hobby[i]);
+    }
+    for(hb of arr[0].hobby) {
+      console.log(hb);
+    }
+   </script>
+</body>
+</html>
