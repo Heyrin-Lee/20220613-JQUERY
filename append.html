@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script>
+    //window.addEventListener("load",function() {}를 간단히 쓰면(app.js)
+    //$(document).ready(function(){}); //이렇게 쓰고 // ready는 DOM만 다 로딩되면 페이지가 다 로딩되지 않아도 실행된다(load보다는 먼저 실행된다)
+    //더 간단히 쓰면 이렇게!
+    $(function(){
+
+    });
+  </script>
+  <style>
+    div {border:1px solid blue; padding:10px;}
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div id="basket"></div>
+  <div id="apple">apple</div>
+  <div id="banana">banana</div>
+  <script>
+    //새로운 태그 추가
+    $("<div>").html("포도")
+              .attr("id","gr")
+              .appendTo($("#basket"));
+    
+    //태그 이동
+    $("#apple").appendTo($("#basket"));
+    
+    //태그 복사 .clone() : 복사
+    //부모가 뒤에 올 때
+    //$("#banana").clone().appendTo($("#basket"));
+    //부모가 앞에 올 때
+    $("#basket").append($("#banana").clone());
+  </script>
+</body>
+</html>

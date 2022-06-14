@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <style>
+    .div0 {color:red;}
+    .div1 {color:green;}
+    .div2 {color:blue;}
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div data-id="g1" data-name="kim">내용1</div>
+  <div data-id="g2" data-name="park">내용2</div>
+  <div data-id="g3" data-name="choi">내용3</div>
+  <script>
+    //순서대로 div 0,1,2 로 class 지정하기
+    // $("div").addClass(function(index) {
+    //   return "div" + index;
+    // });
+    
+    //클릭하면 지정한 class 글색상으로 바꾸기
+    // $("div").click(function() {
+    //   $(this).addClass("div0")
+    // })
+
+    //클릭하면 지정한 class 추가하고 다시 클릭하면 클릭한 div태그만 class 추가하기
+    $("div").click(function() {
+      $("div").removeClass();
+      //다른 css 클래스가 있는 경우, 위의 코드는 모든 class가 다 삭제되니까 $("div").removeClass("div0"); 하면 지정한 class만 삭제될 것이다
+      $(this).addClass("div0")
+
+      //$(".div0").text() : console에서 선택된 태그의 text 조회
+      //$(".div0").data() : 선택된 태그의 data 조회 // data, name, id 등 지정한 속성에 대한 조회 가능
+      //$(".div0").data("name","hong") : 해당 데이터 속성 변경
+
+    })
+
+  </script>
+</body>
+</html>

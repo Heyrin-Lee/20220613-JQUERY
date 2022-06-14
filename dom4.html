@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script>
+    $(function(){
+      $("dt").on("click",function() { //해당 태그에 직접 이벤트를 거는 방식
+        //모든 dd태그를 안 보이게
+        //$("dd").fadeOut();
+
+        //클릭한 태그에 동생노드를 찾아서 보이게 지정 //동생노드 = .next()
+        $(this).next().toggle();
+      })
+    });
+  </script>
+  <title>Document</title>
+  <style>
+    dd { display : none;}
+  </style>
+</head>
+<body>
+  <dt>java</dt>
+  <dd>자바란</dd>
+  <dt>spring</dt>
+  <dd>스프링이란</dd>
+  <dt>sql</dt>
+  <dd>sql이란</dd>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  <table border="1">
+    <tr data-no="1">
+      <td>Kim</td>
+        <td>내용</td>
+        <td><button type="button" class="btn">삭제</button></td>
+    </tr>
+    <tr data-no="2">
+      <td>Park</td>
+      <td>내용2</td>
+    <td><button type="button" class="btn">삭제</button></td>
+    </tr>
+  </table>
+  <script>
+    var btns = document.getElementsByClassName("btn");
+    for(btn of btns) {
+      btn.addEventListener("click",function(){ 
+        //클릭한 버튼의 tr의 data-no 속성을 콘솔에 출력하고 tr태그 삭제
+        //closest() : 가장 가까운 조상
+        var no = this.closest("tr").getAttribute("data-no");
+        console.log(no);
+        this.closest("tr").remove();
+      })
+    }
+  </script>
+</body>
+</html>

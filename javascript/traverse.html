@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  <table id="goods" border="1">
+    <tr><td class="no">1</td>
+        <td data-no="g01" id="g01">2</td>
+        <td><button type="button" class="btn">조회</button></td>
+    </tr>
+    <tr><td class="no">3</td><td data-no="g02">4</td>
+    <td><button type="button" class="btn">조회</button></td>
+    </tr>
+    <tr><td class="no">5</td><td data-no="g03">6</td>
+    <td><button type="button" class="btn">조회</button></td>
+    </tr>
+    <tr><td class="no">7</td>
+        <td data-no="f03">8</td>
+        <td><button type="button" class="btn">조회</button></td>
+    </tr>
+  </table>
+  <script>
+    var btns = document.getElementsByClassName("btn");
+    for(btn of btns) {
+      btn.addEventListener("click",function(){ 
+        //클릭한 버튼의 앞노드의 내용을 조회. 부모의 형노드의 내용
+        var td = this.parentElement.previousElementSibling.innerHTML;
+        console.log(td);
+        //console.log(this.parentElement.previousElementSibling.innerHTML);
+
+        //클릭한 버튼 행의 첫번째 td태그의 내용
+        var td1 = this.closest("tr").firstElementChild.innerHTML;
+        console.log(td1);
+        //console.log(this.closet("tr").firstElementChild.innerHTML);
+
+        //두번째 td에 데이터 no 속성 읽어오기
+        var da = this.closest("tr").children[1].getAttribute("data-no");
+        console.log(da);
+      })
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script>
+    $(function() {
+      $("#btn").on("click",function() {
+        //input 태그 값을 이용해서 li태그 생성해서 추가 //val()함수 이용해서 input 태그 값 찾기. appendTo(), append() 이용
+        var lis = $("<li>").html($("#name").val());
+        var spans = $("<span>").html($("#price").val());
+        
+        $("ul").append(lis.append(spans));
+        
+      })
+      $("ul").on("mouseenter", 'li', function() {
+        //find 사용해서 span태그 찾아서 보이게
+        $(this).find($("span")).css("display","inline-block");
+      })
+      $("ul").on("mouseleave",'li',function() {
+        //find 사용해서 span태그 찾아서 안보이게
+        $(this).find($("span")).css("display","none");
+        
+      })
+    })
+  </script>
+  <title>Document</title>
+  <style>
+    span {display:none;}
+  </style>
+</head>
+<body>
+  <input id="name">
+  <input id="price">
+  <button type="button" id="btn">추가</button>
+  <ul>
+    <li>바나나<span>300</span></li>
+    <li>사과<span>300</span></li>
+  </ul>
+</body>
+</html>

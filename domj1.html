@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  <table id="goods" border="1">
+    <tr><td class="no">1</td><td data-no="g01" id="g01">2</td></tr>
+      <td><button type="button" class="btn">조회</button></td>
+    <tr><td class="no">3</td><td data-no="g02">4</td></tr>
+    <td><button type="button" class="btn">조회</button></td>
+    <tr><td class="no">5</td><td data-no="g03">6</td></tr>
+    <td><button type="button" class="btn">조회</button></td>
+    <tr><td class="no">7</td><td data-no="f03">8</td></tr>
+    <td><button type="button" class="btn">조회</button></td>
+  </table>
+  <script>
+    var btns = document.getElementsByClassName("btn");
+    for(btn of btns) {
+      btn.addEventLinstener("click",function(){ 
+        //클릭한 버튼의 앞노드의 내용을 조회
+
+        //클릭한 버튼 행의 첫번째 td태그의 내용
+      })
+    }
+  </script>
+  <select id="fruit">
+    <option value="a">사과</option>
+  </select>
+  <script>
+    let arr = [{name:"사과",val:"a"},{name:'배',val:"b"},{name:"키위",val:"c"}];
+    for(i=0; i<arr.length; i++) {
+      // var op = document.createElement("option");
+      // op.value = arr[i].val;
+      // op.innerHTML = arr[i].name;
+      // fruit.appendChild(op);
+
+          //jQuery로 쓰면
+          //$("<option>") = op => 자식태그, fruit =>부모태그
+          $("<option>").val(arr[i].val).html(arr[i].name).appendTo($("#fruit"));
+            //다른 방법으로는 이렇게
+          var op = $("<option>").val(arr[i].val).html(arr[i].name)
+            $("#fruit").append(op);
+            //부모.prepend(자식) : 제일 앞에 붙이기
+            //자식prependTo(부모)
+            //형제노드.before(새 노드) //앞에 붙이기
+            //형제노드.after (새 노드) //맨 뒤에 붙이기
+    }
+    //태그생성
+    //추가
+  </script>
+</body>
+</html>
