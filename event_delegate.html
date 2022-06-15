@@ -6,8 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <script>
+    var gv = "전역변수";
+    let bv = "블록변수";
     $(function() {
       $("#btn").on("click",function() {
+        var lv = "지역변수";
         //input 태그 값을 이용해서 li태그 생성해서 추가 //val()함수 이용해서 input 태그 값 찾기. appendTo(), append() 이용
         var lis = $("<li>").html($("#name").val());
         var spans = $("<span>").html($("#price").val());

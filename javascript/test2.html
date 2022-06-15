@@ -13,24 +13,28 @@ btnIns.addEventListener("click", function(){
 var nos = document.getElementsByName("no");
 var names = document.getElementsByName("name");
 //중복값 체크: 입력된 이름중에 중복된 이름이 있으면 경고창을 출력하고 리턴
- //1번문제 코드 작성
-//배열에 담기 : 
 var arr = [];
-for(var i=0; i<nos.length; i++) {
-    let obj = {no:nos[i].value, name:names[i].value}
-    arr.push(obj)
+for(i=0; i<nos.length; i++) { 
+    for(o=i+1; o<nos.length; o++) {
+        if(names[i].value == names[o].value) {
+        return alert("이미 존재하는 이름");
+    }
+    
 }
+let obj = {no:nos[i].value, name:names[i].value}
+arr.push(obj)
+    //for(var i=0; i<nos.length; i++) {
+    
+}
+console.log(arr);
 
- //2번문제 코드 작성
+//1번문제 코드 작성
+//배열에 담기 : 
+//2번문제 코드 작성
 //배열 출력
 console.log(JSON.stringify(arr));
 
-console.log(arr[0].name ==arr[1].name);
-for(i=0; i<arr.length; i++) {
-    if(arr[i].name == arr[i].name) {
-        return alert("이미 존재하는 이름!");
-    }
-}
+
 });
 
 
@@ -45,6 +49,7 @@ for(i=0; i<arr.length; i++) {
 <div><input name="no"><input name="name"/></div>
 <div><input name="no"><input name="name"/></div>
 <div><button type="button" id="btnIns">등록</button></div>
+<div id="result"></div>
 </form>
 </body>
 </html>
