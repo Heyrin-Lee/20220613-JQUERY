@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
+  <script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="grid"></div>
+  <script>
+    var Grid = tui.Grid;
+
+//     const data = [
+//   {
+//     id: '10012',
+//     city: 'Seoul',
+//     country: 'South Korea'
+//   },
+//   {
+//     id: '10013',
+//     city: 'Tokyo',
+//     country: 'Japan'    
+//   },
+//   {
+//     id: '10014',
+//     city: 'London',
+//     country: 'England'
+//   },
+//   {
+//     id: '10015',
+//     city: 'Ljubljana',
+//     country: 'Slovenia'
+//   },
+//   {
+//     id: '10016',
+//     city: 'Reykjavik',
+//     country: 'Iceland'
+//   }
+// ];
+
+// case 1 : 인스턴스 생성시 data 옵션으로 데이터 입력
+const grid = new Grid({
+  el: document.getElementById('grid'),
+  // data : data,
+  columns : [
+  {
+    header: 'ID',
+    name: 'id'
+  },
+  {
+    header: 'CITY',
+    name: 'city',
+    editor: 'text'
+  },
+  {
+    header: 'COUNTRY',
+    name: 'country'
+  }
+]
+});
+//ajax 조회하고 grid에 넣는다
+$.ajax({
+  url:'data.json'
+  //람다 표현식 // 표현식이 여러개면 중괄호 생략 불가능
+  .done(result => {grid.resetData(result)} )
+// }).done(function(result) {
+//   grid.resetData(result);
+ })
+
+//그리드에 이벤트 추가
+grid.on("click", ev => { 
+  //클릭한 행
+  console.log(ev.rowKey);
+  //클릭한 열
+  console.log(ev.columnName);
+  //클릭한 셀의 데이터
+  var value = grid.getValue(ev.rowKey,ev.columnName);
+  console.log(value);
+})
+// grid.on("click",function(ev) {
+//   //클릭한 행
+//   console.log(ev.rowKey);
+//   //클릭한 열
+//   console.log(ev.columnName);
+//   //클릭한 셀의 데이터
+//   var value = grid.getValue(ev.rowKey,ev.columnName);
+//   console.log(value);
+  //모달
+//})
+
+  </script>
+</body>
+</html>
