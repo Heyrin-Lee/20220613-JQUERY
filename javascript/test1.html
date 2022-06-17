@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <title>문자열자르기</title>
 <style>
 label { display: inline-block; width: 70px; text-align: right; }
@@ -13,10 +14,17 @@ btnEvent();
 function btnEvent(){
 btn.addEventListener("click", function(){ 
     //코드 작성
-    var line = result.value.split(",");
+    
+    // var line = $("#result").val().split(",");
+    // for(i=0; i<line.length; i++) {
+    //     document.getElementsByTagName('input')[i].setAttribute("value",line[i]);
+    // }
 
+    //jquery
+    var line = $("#result").val().split(",");
     for(i=0; i<line.length; i++) {
-        document.getElementsByTagName('input')[i].setAttribute("value",line[i]);
+        $("input").eq(i).val(line[i]);
+        
     }
 });
 }
