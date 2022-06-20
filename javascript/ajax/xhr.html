@@ -46,8 +46,9 @@ req.onload = function () {
   var name = obj.movieInfoResult.movieInfo.movieNm;
   console.log(name);
   console.log(director);
+  infoList.innerHTML = name+director;
   };
-  infoList.innerHTML = name;
+ 
 }
 
 function dailyList() {
@@ -81,6 +82,7 @@ for(mv of list) {
   boxList.innerHTML += `<div class=info data-cd=${mv.movieCd}>${mv.movieNm}</div>`;
 }
 console.log(typeof this.responseText)
+
 //this = req.onload
 };
 }
